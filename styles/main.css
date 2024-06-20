@@ -12,20 +12,25 @@ header {
     text-align: center;
 }
 
-#products, #cart {
+#categories, #subcategories, #products, #cart {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     padding: 1em;
 }
 
-.product {
+.category, .subcategory, .product {
     border: 1px solid #ddd;
     margin: 1em;
     padding: 1em;
     background-color: #fff;
     width: 200px;
     text-align: center;
+    cursor: pointer;
+}
+
+.category:hover, .subcategory:hover, .product:hover {
+    background-color: #f0f0f0;
 }
 
 .product img {
@@ -135,4 +140,10 @@ footer {
     color: #ccc;
     padding: 10px 0;
     height: 150px;
+}
+
+.product video {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
 }
