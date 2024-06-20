@@ -114,6 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { name: 'Cabelo Liso', price: '22.000', image: 'images/cabelos/Liso/Liso.jpg', category: 'cabelos', subcategory: 'lisos' },
             { name: 'Cabelo Liso 10', price: '50.000', video: 'videos/Liso videos/Liso 10.mp4', category: 'cabelos', subcategory: 'lisos' },
             { name: 'Cabelo Liso 12', price: '50.000', video: 'videos/Liso videos/Liso 12.mp4', category: 'cabelos', subcategory: 'lisos' }
+            
         ];
 
         const filteredProducts = products.filter(product => product.category === category && product.subcategory === subcategory);
