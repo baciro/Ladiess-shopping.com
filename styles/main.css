@@ -3,9 +3,6 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f8f8f8;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
 }
 
 header {
@@ -15,11 +12,7 @@ header {
     text-align: center;
 }
 
-main {
-    flex: 1;
-}
-
-#products {
+#products, #cart {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -33,7 +26,6 @@ main {
     background-color: #fff;
     width: 200px;
     text-align: center;
-    cursor: pointer;
 }
 
 .product img {
@@ -46,6 +38,44 @@ footer {
     color: #fff;
     text-align: center;
     padding: 1em;
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#checkout-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    z-index: 1000;
+}
+
+#checkout-btn:hover {
+    background-color: #45a049;
+}
+
+#cart {
+    flex-direction: column;
+    align-items: center;
+}
+
+#cart-items {
+    list-style-type: none;
+    padding: 0;
+}
+
+#cart-items li {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
 }
 
 /* Modal styles */
@@ -96,18 +126,4 @@ footer {
     color: #ccc;
     padding: 10px 0;
     height: 150px;
-}
-
-/* Buy button styles */
-.buy-btn {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-.buy-btn:hover {
-    background-color: #45a049;
 }
