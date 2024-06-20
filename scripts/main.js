@@ -20,4 +20,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
     span.onclick = function() { 
         modal.style.display = "none";
     }
+
+    const buyButtons = document.querySelectorAll('.buy-btn');
+
+    buyButtons.forEach(button => {
+        button.addEventListener('click', (event) => {
+            event.stopPropagation();
+            alert('Para comprar, por favor, entre em contato pelo nosso número de WhatsApp: +221 77 803 44 51');
+        });
+    });
 });
