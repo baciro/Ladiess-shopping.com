@@ -14,7 +14,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
             if (e.target.classList.contains('buy-btn')) {
                 const name = product.getAttribute('data-name');
                 const price = product.getAttribute('data-price');
-                addToCart(name, price);
+                const image = product.getAttribute('data-image');
+                addToCart(name, price, image);
             } else {
                 const imgSrc = product.getAttribute('data-image');
                 const imgAlt = product.querySelector('img').alt;
@@ -29,17 +30,36 @@ document.addEventListener('DOMContentLoaded', (event) => {
         modal.style.display = "none";
     }
 
-    function addToCart(name, price) {
-        cart.push({ name, price });
+    function addToCart(name, price, image) {
+        cart.push({ name, price, image });
+        renderCart();
+    }
+
+    function removeFromCart(index) {
+        cart.splice(index, 1);
         renderCart();
     }
 
     function renderCart() {
         cartItems.innerHTML = '';
-        cart.forEach((item) => {
+        cart.forEach((item, index) => {
             const li = document.createElement('li');
-            li.innerText = `${item.name} - ${item.price}F cfa`;
+            li.innerHTML = `
+                <img src="${item.image}" alt="${item.name}">
+                <div>
+                    <p>${item.name} - ${item.price}F cfa</p>
+                    <button class="remove-btn" data-index="${index}">Remover</button>
+                </div>
+            `;
             cartItems.appendChild(li);
+        });
+
+        const removeButtons = document.querySelectorAll('.remove-btn');
+        removeButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                const index = e.target.getAttribute('data-index');
+                removeFromCart(index);
+            });
         });
     }
 
